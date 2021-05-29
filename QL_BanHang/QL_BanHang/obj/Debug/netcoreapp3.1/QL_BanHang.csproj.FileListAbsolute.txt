@@ -1,0 +1,7 @@
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.csprojAssemblyReference.cache
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.Form1.resources
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.View.frmNhanVien.resources
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.csproj.GenerateResource.cache
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.AssemblyInfoInputs.cache
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.AssemblyInfo.cs
+C:\hoctap\QL_BanHang\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.csproj.CoreCompileInputs.cache
