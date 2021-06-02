@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using QL_BanHang.Control;
+using QL_BanHang.Object;
 
 namespace QL_BanHang.View
 {
     public partial class frmNhanVien : Form
     {
-        NhanVienCtrl nvctr = new NhanVienCtrl();
+        NhanVienCtrl nvCtr = new NhanVienCtrl();
+        private int flagLuu = 0;
         public frmNhanVien()
         {
             InitializeComponent();
@@ -19,27 +22,144 @@ namespace QL_BanHang.View
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            DataTable dtNhanVien = new DataTable();
-            dtNhanVien = nvctr.getData();
-            dgvDanhSachNV.DataSource = dtNhanVien;
-            bingding();
-
+            DataTable dtDS = new System.Data.DataTable();
+            dtDS = nvCtr.getData();
+            dtgvDS.DataSource = dtDS;
+            binhding();
+            DisEnl(false);
+        }
+        private void binhding()
+        {
+            txtMa.DataBindings.Clear();
+            txtMa.DataBindings.Add("Text", dtgvDS.DataSource, "MaNV");
+            txtTen.DataBindings.Clear();
+            txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenNV");
+            cmbGioiTinh.DataBindings.Clear();
+            cmbGioiTinh.DataBindings.Add("Text", dtgvDS.DataSource, "GioiTinh");
+            txtDiaChi.DataBindings.Clear();
+            txtDiaChi.DataBindings.Add("Text", dtgvDS.DataSource, "DiaChi");
+            txtSDT.DataBindings.Clear();
+            txtSDT.DataBindings.Add("Text", dtgvDS.DataSource, "SDT");
+            dpNamSinh.DataBindings.Clear();
+            dpNamSinh.DataBindings.Add("Text", dtgvDS.DataSource, "NamSinh");
         }
 
-        void bingding()
+        private void loadCMB()
         {
-            txtma.DataBindings.Clear();
-            txtma.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "Manv");
-            txtten.DataBindings.Clear();
-            txtten.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "TenNhanVien");
-            txtdiachi.DataBindings.Clear();
-            txtdiachi.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "DiaChi");
-            txtSDT.DataBindings.Clear();
-            txtSDT.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "SDT");
-            dtnamsinh.DataBindings.Clear();
-            dtnamsinh.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "NamSinh");
-            cmbgioitinh.DataBindings.Clear();
-            cmbgioitinh.DataBindings.Add("Text", dgvDanhSachNV.DataSource, "GioiTinh");
+            cmbGioiTinh.Items.Clear();
+            cmbGioiTinh.Items.Add("Nam");
+            cmbGioiTinh.Items.Add("Nữ");
+            cmbGioiTinh.SelectedItem = 0;
+        }
+
+        private void clearData()
+        {
+            txtMa.Text = "";
+            txtTen.Text = "";
+            txtDiaChi.Text = "";
+            txtSDT.Text = "";
+            dpNamSinh.Value = DateTime.Now.Date;
+            loadCMB();
+        }
+
+        private void addData(NhanVienObj nv)
+        {
+            nv.MaNhanVien = txtMa.Text.Trim();
+            if (cmbGioiTinh.SelectedIndex == 0)
+            {
+                nv.GioiTinh = "Nam";
+            }
+            else
+                nv.GioiTinh = "Nữ";
+            nv.DiaChi = txtDiaChi.Text.Trim();
+            nv.SDT = txtSDT.Text.Trim();
+            nv.TenNhanVien = txtTen.Text.Trim();
+            nv.NamSinh = dpNamSinh.Value; //k rõ text hay valuse
+        }
+
+        private void DisEnl(bool e)
+        {
+            btnThem.Enabled = !e;
+            btnXoa.Enabled = !e;
+            btnSua.Enabled = !e;
+            btnLuu.Enabled = e;
+            btnHuy.Enabled = e;
+            txtMa.Enabled = e;
+            txtTen.Enabled = e;
+            txtDiaChi.Enabled = e;
+            txtSDT.Enabled = e;
+            cmbGioiTinh.Enabled = e;
+            dpNamSinh.Enabled = e;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            flagLuu = 0;
+            clearData();
+            DisEnl(true);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                if (nvCtr.delData(txtMa.Text.Trim()))
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            frmNhanVien_Load(sender, e);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            flagLuu = 1;
+            DisEnl(true);
+            loadCMB();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            NhanVienObj nvObj = new NhanVienObj();
+            addData(nvObj);
+            if (flagLuu == 0)
+            {
+                if (nvCtr.addData(nvObj))
+                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Thêm không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (nvCtr.upData(nvObj))
+                    MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Sửa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            frmNhanVien_Load(sender, e);
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn hủy thao tác đang làm?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+                frmNhanVien_Load(sender, e);
+            else
+                return;
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

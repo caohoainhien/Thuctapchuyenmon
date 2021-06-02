@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\hoctap\\QL_BanHang\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj": {}
+    "C:\\Users\\Nhien\\Desktop\\Thuctapchuyenmon\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj": {}
   },
   "projects": {
-    "C:\\hoctap\\QL_BanHang\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj": {
+    "C:\\Users\\Nhien\\Desktop\\Thuctapchuyenmon\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\hoctap\\QL_BanHang\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj",
+        "projectUniqueName": "C:\\Users\\Nhien\\Desktop\\Thuctapchuyenmon\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj",
         "projectName": "QL_BanHang",
-        "projectPath": "C:\\hoctap\\QL_BanHang\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj",
+        "projectPath": "C:\\Users\\Nhien\\Desktop\\Thuctapchuyenmon\\QL_BanHang\\QL_BanHang\\QL_BanHang.csproj",
         "packagesPath": "C:\\Users\\Nhien\\.nuget\\packages\\",
-        "outputPath": "C:\\hoctap\\QL_BanHang\\QL_BanHang\\QL_BanHang\\obj\\",
+        "outputPath": "C:\\Users\\Nhien\\Desktop\\Thuctapchuyenmon\\QL_BanHang\\QL_BanHang\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nhien\\AppData\\Roaming\\NuGet\\NuGet.Config",
