@@ -20,7 +20,7 @@ create table tb_NhanVien(
  SDT	varchar(10)	,
  GioiTinh	nvarchar(5)	,
  DiaChi	nvarchar(50),	
- SoDem	varchar(10)
+ SoDiem	varchar(10)
  )
 
 
