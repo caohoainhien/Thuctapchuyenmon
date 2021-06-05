@@ -14,7 +14,7 @@ namespace QL_BanHang.Model
 
         public DataTable GetData()
         {
-            DataTable tb = new DataTable;
+            DataTable dt = new DataTable();
             cmd.CommandText = "select * from tb_NhanVien";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
@@ -38,7 +38,7 @@ namespace QL_BanHang.Model
 
         public bool AddData(NhanVienObj nvObj)
         {
-            cmd.CommandText = "Insert into tb_NhanVien values ('" + nvObj.MaNhanVien + "',N'" + nvObj.TenNhanVien + "',N'" + nvObj.GioiTinh + "',CONVERT(DATE,'" + nvObj.NamSinh + "',103),N'" + nvObj.DiaChi + "','" + nvObj.DienThoai + "','" + nvObj.MatKhau + "')";
+            cmd.CommandText = "Insert into tb_NhanVien values ('" + nvObj.MaNhanVien + "',N'" + nvObj.TenNhanVien + "',N'" + nvObj.GioiTinh + "',CONVERT(DATE,'" + nvObj.NamSinh + "',103),N'" + nvObj.DiaChi + "','" + nvObj.SDT + "','" + nvObj.MatKhau + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
 
@@ -60,7 +60,7 @@ namespace QL_BanHang.Model
 
         public bool UpdData(NhanVienObj nvObj)
         {
-            cmd.CommandText = "Update tb_NhanVien set TenNV =  N'" + nvObj.TenNhanVien + "', GioiTinh = N'" + nvObj.GioiTinh + "', NamSinh = CONVERT(DATE,'" + nvObj.NamSinh + "',103), DiaChi = N'" + nvObj.DiaChi + "',SDT = '" + nvObj.DienThoai + "' Where MaNV = '" + nvObj.MaNhanVien + "'";
+            cmd.CommandText = "Update tb_NhanVien set TenNV =  N'" + nvObj.TenNhanVien + "', GioiTinh = N'" + nvObj.GioiTinh + "', NamSinh = CONVERT(DATE,'" + nvObj.NamSinh + "',103), DiaChi = N'" + nvObj.DiaChi + "',SDT = '" + nvObj.SDT + "' Where MaNV = '" + nvObj.MaNhanVien + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
