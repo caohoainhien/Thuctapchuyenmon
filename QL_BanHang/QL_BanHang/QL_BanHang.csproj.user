@@ -4,6 +4,9 @@
     <Compile Update="View\frmHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\frmHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>

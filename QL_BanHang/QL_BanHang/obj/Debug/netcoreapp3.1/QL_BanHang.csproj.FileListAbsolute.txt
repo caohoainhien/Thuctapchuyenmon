@@ -30,3 +30,4 @@ C:\Users\Nhien\Desktop\Thuctapchuyenmon\QL_BanHang\QL_BanHang\obj\Debug\netcorea
 C:\Users\Nhien\Desktop\Thuctapchuyenmon\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.genruntimeconfig.cache
 C:\Users\Nhien\Desktop\Thuctapchuyenmon\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.View.frmKhachHang.resources
 C:\Users\Nhien\Desktop\Thuctapchuyenmon\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.View.frmHangHoa.resources
+C:\Users\Nhien\Desktop\Thuctapchuyenmon\QL_BanHang\QL_BanHang\obj\Debug\netcoreapp3.1\QL_BanHang.View.frmHoaDon.resources
