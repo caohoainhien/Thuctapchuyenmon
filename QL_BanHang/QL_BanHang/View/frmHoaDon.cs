@@ -14,7 +14,7 @@ namespace QL_BanHang.View
     public partial class frmHoaDon : Form
     {
         HoaDonCtr hdCtr = new HoaDonCtr();
-        ChiTietCtrl ctCtr = new ChiTietCtrl();
+        ChiTietCtr ctCtr = new ChiTietCtr();
         HangHoaCtr hhctr = new HangHoaCtr();
         DataTable dtDSCT = new System.Data.DataTable();
         int vitriclick = 0;
@@ -143,6 +143,7 @@ namespace QL_BanHang.View
         {
             try
             {
+                //ChiTietCtr ctCtr = new ChiTietCtr();
                 DataTable dt = new System.Data.DataTable();
                 dt = ctCtr.GetData(txtMa.Text.Trim());
                 dtgvDSHH.DataSource = dt;
@@ -197,6 +198,7 @@ namespace QL_BanHang.View
         private void btnSave_Click(object sender, EventArgs e)
         {
             HoaDonObj hdObj = new HoaDonObj();
+            //ChiTietCtr ctCtr = new ChiTietCtr();
             addData(hdObj);
             if (hdCtr.AddData(hdObj))
             {

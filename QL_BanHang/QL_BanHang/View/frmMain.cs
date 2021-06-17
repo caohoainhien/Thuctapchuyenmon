@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QL_BanHang.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,19 @@ namespace QL_BanHang
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmHangHoa hanghoa = new frmHangHoa();
+            this.Hide();
+            hanghoa.ShowDialog();
+            this.Show();
         }
     }
 }

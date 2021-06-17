@@ -53,7 +53,14 @@ namespace QL_BanHang.View
         private void addData(HangHoaObj hh)
         {
             hh.MaHangHoa = txtMa.Text.Trim();
-            hh.DonGia = int.Parse(txtDonGia.Text.Trim());
+            if (txtDonGia != null)
+            {
+                hh.DonGia = int.Parse(txtDonGia.Text.Trim());
+            }
+            else
+            {
+                hh.DonGia = 0;
+            }
             hh.SoLuong = int.Parse(txtSL.Text.Trim());
             hh.TenHangHoa = txtTen.Text.Trim();
         }
@@ -77,6 +84,7 @@ namespace QL_BanHang.View
             flagLuu = 0;
             clearData();
             DisEnl(true);
+            txtSL.Enabled = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

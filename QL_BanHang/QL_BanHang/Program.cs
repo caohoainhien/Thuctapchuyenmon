@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QL_BanHang.View;
 namespace QL_BanHang
 {
     static class Program
@@ -18,7 +18,7 @@ namespace QL_BanHang
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHoaDon());
+            Application.Run(new
         }
     }
 }
