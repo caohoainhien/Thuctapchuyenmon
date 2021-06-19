@@ -345,6 +345,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKhachHang";
             this.Text = "frmKhachHang";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmKhachHang_FormClosing);
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDS)).EndInit();
             this.groupBox2.ResumeLayout(false);

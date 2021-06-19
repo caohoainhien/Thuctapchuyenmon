@@ -441,6 +441,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHoaDon";
             this.Text = "frmHoaDon";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHoaDon_FormClosing);
             this.Load += new System.EventHandler(this.frmHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSHD)).EndInit();
             this.groupBox1.ResumeLayout(false);

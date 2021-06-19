@@ -161,5 +161,12 @@ namespace QL_BanHang.View
         {
 
         }
+
+        private void frmNhanVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 main = new Form1();
+            main.Show();
+            this.Hide();
+        }
     }
 }

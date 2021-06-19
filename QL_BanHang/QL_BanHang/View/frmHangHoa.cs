@@ -170,5 +170,12 @@ namespace QL_BanHang.View
             btnHuy.Enabled = true;
             txtSL.Enabled = true;
         }
+
+        private void frmHangHoa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 main = new Form1();
+            main.Show();
+            this.Hide();
+        }
     }
 }

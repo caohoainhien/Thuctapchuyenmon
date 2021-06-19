@@ -293,5 +293,12 @@ namespace QL_BanHang.View
         {
             vitriclick = e.RowIndex;
         }
+
+        private void frmHoaDon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 main = new Form1();
+            main.Show();
+            this.Hide();
+        }
     }
 }

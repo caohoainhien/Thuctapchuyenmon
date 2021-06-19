@@ -171,5 +171,12 @@ namespace QL_BanHang.View
                 e.Handled = true;
             }
         }
+
+        private void frmKhachHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 main = new Form1();
+            main.Show();
+            this.Hide();
+        }
     }
 }

@@ -280,6 +280,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHangHoa";
             this.Text = "frmHangHoa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHangHoa_FormClosing);
             this.Load += new System.EventHandler(this.frmHangHoa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDS)).EndInit();
             this.groupBox2.ResumeLayout(false);

@@ -1,4 +1,3 @@
-using QL_BanHang.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace QL_BanHang
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new
+            Application.Run(new Form1());
         }
     }
 }

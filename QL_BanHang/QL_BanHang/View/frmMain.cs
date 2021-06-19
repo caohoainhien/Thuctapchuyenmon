@@ -1,5 +1,4 @@
-﻿using QL_BanHang.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QL_BanHang
+namespace QL_BanHang.View
 {
     public partial class Form1 : Form
     {
@@ -31,9 +30,29 @@ namespace QL_BanHang
         private void button1_Click(object sender, EventArgs e)
         {
             frmHangHoa hanghoa = new frmHangHoa();
-            this.Hide();
             hanghoa.ShowDialog();
-            this.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmHoaDon hoaDon = new frmHoaDon();
+            hoaDon.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmKhachHang khachHang = new frmKhachHang();
+            khachHang.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frmNhanVien nhanVien = new frmNhanVien();
+            nhanVien.Show();
+            this.Hide();
         }
     }
 }
