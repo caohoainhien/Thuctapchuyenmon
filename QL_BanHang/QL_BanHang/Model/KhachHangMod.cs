@@ -16,7 +16,7 @@ namespace QL_BanHang.Model
         public DataTable GetData()
         {
             DataTable dt = new DataTable();
-            cmd.CommandText = "select MaKH, TenKH, GioiTinh,NamSinh,DiaChi,SDT,Email,Diem from tb_KhachHang";
+            cmd.CommandText = "select MaKH, TenKH, GioiTinh,DiaChi,SDT,SoDem,Namsinh,emails from tb_KhachHang";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -36,7 +36,7 @@ namespace QL_BanHang.Model
 
         public bool AddData(KhachHangObj khObj)
         {
-            cmd.CommandText = "Insert into tb_KhachHang values ('" + khObj.MaKhachHang + "',N'" + khObj.TenKhachHang + "',N'" + khObj.GioiTinh + "',CONVERT(DATE,'" + khObj.NamSinh + "',103),N'" + khObj.DienThoai + "','" + khObj.DiaChi + "',0,'" + khObj.Email + "')";
+            cmd.CommandText = "Insert into tb_KhachHang values ('" + khObj.MaKhachHang + "',N'" + khObj.TenKhachHang + "',N'" + khObj.GioiTinh + "','" + khObj.NamSinh + "',N'" + khObj.DienThoai + "','" + khObj.DiaChi + "','" + khObj.Diem + "','" + khObj.Email + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -48,7 +48,7 @@ namespace QL_BanHang.Model
             catch (Exception ex)
             {
                 string mex = ex.Message;
-                cmd.Dispose();
+                cmd.Dispose();        
                 con.CloseConn();
             }
             return false;
@@ -56,7 +56,7 @@ namespace QL_BanHang.Model
 
         public bool UpdData(KhachHangObj khObj)
         {
-            cmd.CommandText = "Update tb_KhachHang set TenKH =  N'" + khObj.TenKhachHang + "', GioiTinh = N'" + khObj.GioiTinh + "', NamSinh = CONVERT(DATE,'" + khObj.NamSinh + "',103), DiaChi = N'" + khObj.DiaChi + "',SDT = '" + khObj.DienThoai + "',Email = '" + khObj.Email + "',Diem = '" + khObj.Diem + "' Where MaKH = '" + khObj.MaKhachHang + "'";
+            cmd.CommandText = "Update tb_KhachHang set TenKH =  N'" + khObj.TenKhachHang + "', GioiTinh = N'" + khObj.GioiTinh + "', NamSinh ='" + khObj.NamSinh + "', DiaChi = N'" + khObj.DiaChi + "',SDT = '" + khObj.DienThoai + "',Email = '" + khObj.Email + "',Diem = '" + khObj.Diem + "' Where MaKH = '" + khObj.MaKhachHang + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try

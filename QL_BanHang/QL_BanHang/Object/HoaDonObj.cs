@@ -7,7 +7,19 @@ namespace QL_BanHang.Obiect
 {
     class HoaDonObj
     {
-        string ma, ngaylap, nguoilap, khachhang;
+        string ma, ngaylap, nguoilap, khachhang, maKH, maNV;
+
+        public string MaKH
+        {
+            get { return maKH; }
+            set { maKH = value; }
+        }
+
+        public string MaNV
+        {
+            get { return maNV; }
+            set { maNV = value; }
+        }
 
         public string KhachHang
         {

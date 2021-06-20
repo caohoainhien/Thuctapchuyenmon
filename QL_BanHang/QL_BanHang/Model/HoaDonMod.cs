@@ -16,7 +16,7 @@ namespace QL_BanHang.Model
         public DataTable GetData()
         {
             DataTable dt = new DataTable();
-            cmd.CommandText = @"select hd.MaHD, hd.NgayLap, nv.TenNV, kh.TenKH from tb_HoaDon hd, tb_KhachHang kh, tb_NhanVien nv where kh.MaKH = hd.KhachHang and nv.MaNV = hd.NguoiLap";
+            cmd.CommandText = @"select hd.MaHoaDon, hd.NgayLap, nv.TenNhanVien, kh.TenKH from tb_HoaDon hd, tb_KhachHang kh, tb_NhanVien nv where kh.MaKH = hd.MaKH and nv.MaNV = hd.MaNV";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -36,7 +36,7 @@ namespace QL_BanHang.Model
 
         public bool AddData(HoaDonObj hdObj)
         {
-            cmd.CommandText = "insert into tb_HoaDon values ('" + hdObj.MaHoaDon + "', CONVERT (date,'" + hdObj.NgayLap + "',103),'" + hdObj.NguoiLap + "','" + hdObj.KhachHang + "')";
+            cmd.CommandText = "insert into tb_HoaDon values ('" + hdObj.MaHoaDon + "','" + hdObj.KhachHang + "','" + hdObj.NguoiLap + "','" + hdObj.NgayLap + "'," + int.Parse(hdObj.MaKH) + "," + int.Parse(hdObj.MaNV) + ")";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -56,7 +56,7 @@ namespace QL_BanHang.Model
 
         public bool DelData(string ma)
         {
-            cmd.CommandText = "Delete tb_HoaDon Where MaHD = '" + ma + "'";
+            cmd.CommandText = "Delete tb_HoaDon Where MaHoaDon = '" + ma + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try

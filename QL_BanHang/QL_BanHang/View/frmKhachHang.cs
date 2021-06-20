@@ -26,11 +26,11 @@ namespace QL_BanHang.View
             dtDS = khCtr.GetData();
             dtgvDS.DataSource = dtDS;
             binhding();
-            DisEnl(false);
+            //DisEnl(false);
         }
         private void binhding()
         {
-            txtMa.DataBindings.Clear();
+            /*txtMa.DataBindings.Clear();
             txtMa.DataBindings.Add("Text", dtgvDS.DataSource, "MaKH");
             txtTen.DataBindings.Clear();
             txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenKH");
@@ -43,10 +43,13 @@ namespace QL_BanHang.View
             dpNamSinh.DataBindings.Clear();
             dpNamSinh.DataBindings.Add("Text", dtgvDS.DataSource, "NamSinh");
             txtEmail.DataBindings.Clear();
-            txtEmail.DataBindings.Add("Text", dtgvDS.DataSource, "Email");
+            txtEmail.DataBindings.Add("Text", dtgvDS.DataSource, "emails");
             txtDiem.DataBindings.Clear();
-            txtDiem.DataBindings.Add("Text", dtgvDS.DataSource, "Diem");
+            txtDiem.DataBindings.Add("Text", dtgvDS.DataSource, "Diem");*/
+            dtgvDS.Update();
+            dtgvDS.Refresh();
         }
+        
         private void DisEnl(bool e)
         {
             btnThem.Enabled = !e;
@@ -61,6 +64,7 @@ namespace QL_BanHang.View
             cmbGioiTinh.Enabled = e;
             dpNamSinh.Enabled = e;
             txtEmail.Enabled = e;
+            txtDiem.Enabled = e;
         }
 
         private void loadCMB()
@@ -94,7 +98,7 @@ namespace QL_BanHang.View
             kh.DiaChi = txtDiaChi.Text.Trim();
             kh.DienThoai = txtSDT.Text.Trim();
             kh.TenKhachHang = txtTen.Text.Trim();
-            kh.NamSinh = dpNamSinh.Text;
+            kh.NamSinh = dpNamSinh.Value;
             kh.Email = txtEmail.Text.Trim();
             kh.Diem = int.Parse(txtDiem.Text.Trim());
         }
@@ -111,7 +115,7 @@ namespace QL_BanHang.View
             DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                if (khCtr.DelData(txtMa.Text.Trim()))
+                if (khCtr.DelData(txtMa.Text))
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

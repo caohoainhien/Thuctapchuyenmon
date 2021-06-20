@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNhanVien = new System.Windows.Forms.TextBox();
             this.txtNgayLap = new System.Windows.Forms.TextBox();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,6 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbxNhanVien = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDSHD)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,13 +84,13 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbxNhanVien);
             this.groupBox1.Controls.Add(this.btncham);
             this.groupBox1.Controls.Add(this.cmbKhachHang);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtNhanVien);
             this.groupBox1.Controls.Add(this.txtNgayLap);
             this.groupBox1.Controls.Add(this.txtMa);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -160,14 +160,6 @@
             this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã hóa đơn";
-            // 
-            // txtNhanVien
-            // 
-            this.txtNhanVien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtNhanVien.Location = new System.Drawing.Point(398, 32);
-            this.txtNhanVien.Name = "txtNhanVien";
-            this.txtNhanVien.Size = new System.Drawing.Size(171, 26);
-            this.txtNhanVien.TabIndex = 0;
             // 
             // txtNgayLap
             // 
@@ -424,6 +416,14 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // cbxNhanVien
+            // 
+            this.cbxNhanVien.FormattingEnabled = true;
+            this.cbxNhanVien.Location = new System.Drawing.Point(398, 31);
+            this.cbxNhanVien.Name = "cbxNhanVien";
+            this.cbxNhanVien.Size = new System.Drawing.Size(173, 27);
+            this.cbxNhanVien.TabIndex = 4;
+            // 
             // frmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -465,7 +465,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNhanVien;
         private System.Windows.Forms.TextBox txtNgayLap;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -488,5 +487,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lbThanhTien;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbxNhanVien;
     }
 }

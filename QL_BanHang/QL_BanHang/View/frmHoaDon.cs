@@ -16,6 +16,7 @@ namespace QL_BanHang.View
         HoaDonCtr hdCtr = new HoaDonCtr();
         ChiTietCtr ctCtr = new ChiTietCtr();
         HangHoaCtr hhctr = new HangHoaCtr();
+        NhanVienCtrl nvvtr = new NhanVienCtrl();
         DataTable dtDSCT = new System.Data.DataTable();
         int vitriclick = 0;
         
@@ -36,11 +37,11 @@ namespace QL_BanHang.View
         private void bingding()
         {
             txtMa.DataBindings.Clear();
-            txtMa.DataBindings.Add("Text", dtgvDSHD.DataSource,"MaHD");
+            txtMa.DataBindings.Add("Text", dtgvDSHD.DataSource, "MaHoaDon");
             txtNgayLap.DataBindings.Clear();
             txtNgayLap.DataBindings.Add("Text", dtgvDSHD.DataSource, "NgayLap");
-            txtNhanVien.DataBindings.Clear();
-            txtNhanVien.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenNV");
+            cbxNhanVien.DataBindings.Clear();
+            cbxNhanVien.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenNhanVien");
             cmbKhachHang.DataBindings.Clear();
             cmbKhachHang.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenKH");
         }
@@ -61,7 +62,7 @@ namespace QL_BanHang.View
         private void Dis_Enl(bool e)
         {
             txtMa.Enabled = e;
-            txtNhanVien.Enabled = e;
+            cbxNhanVien.Enabled = e;
             cmbKhachHang.Enabled = e;
             btnAdd.Enabled = !e;
             btnDel.Enabled = !e;
@@ -78,6 +79,7 @@ namespace QL_BanHang.View
         private void LoadcmbKhachHang()
         { 
             KhachHangCtr khctr = new KhachHangCtr();
+
             cmbKhachHang.DataSource = khctr.GetData();
             cmbKhachHang.DisplayMember = "TenKH";
             cmbKhachHang.ValueMember = "MaKH";
@@ -92,21 +94,32 @@ namespace QL_BanHang.View
             cmbHH.ValueMember = "MaHang";
             
         }
+        private void LoadcmbNV()
+        {
+            
+            cbxNhanVien.DataSource = nvvtr.getData();
+            cbxNhanVien.DisplayMember = "TenNhanVien";
+            cbxNhanVien.ValueMember = "MaNV";
+
+        }
 
         private void clearData()
         {
             txtMa.Text = "";
-            txtNhanVien.Text = "";
+            cbxNhanVien.Text = "";
             txtNgayLap.Text = DateTime.Now.Date.ToShortDateString();
             LoadcmbKhachHang();
         }
 
-        private void addData(HoaDonObj hdObj)
+        private HoaDonObj addData(HoaDonObj hdObj)
         {
             hdObj.MaHoaDon = txtMa.Text.Trim();
             hdObj.NgayLap = txtNgayLap.Text.Trim();
-            hdObj.NguoiLap = txtNhanVien.Text.Trim();
-            hdObj.KhachHang = cmbKhachHang.SelectedValue.ToString();
+            hdObj.NguoiLap = cbxNhanVien.Text.Trim();
+            hdObj.KhachHang = cmbKhachHang.Text.ToString();
+            hdObj.MaKH = cmbKhachHang.SelectedValue.ToString();
+            hdObj.MaNV = cbxNhanVien.SelectedValue.ToString();
+            return hdObj;
         }
 
         private bool checktrung(string mahh)
@@ -167,7 +180,7 @@ namespace QL_BanHang.View
             clearData();
             LoadcmbHH();
             LoadcmbKhachHang();
-
+            LoadcmbNV();
             dtDSCT.Rows.Clear();
             dtDSCT.Columns.Add("MaHD");
             dtDSCT.Columns.Add("HangHoa");
@@ -199,7 +212,7 @@ namespace QL_BanHang.View
         {
             HoaDonObj hdObj = new HoaDonObj();
             //ChiTietCtr ctCtr = new ChiTietCtr();
-            addData(hdObj);
+            hdObj = addData(hdObj);
             if (hdCtr.AddData(hdObj))
             {
                 if (ctCtr.AddData(dtDSCT) && hhctr.UpdSL(dtDSCT))
