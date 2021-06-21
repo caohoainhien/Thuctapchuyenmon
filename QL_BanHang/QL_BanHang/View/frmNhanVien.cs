@@ -42,6 +42,8 @@ namespace QL_BanHang.View
             txtSDT.DataBindings.Add("Text", dtgvDS.DataSource, "SDT");
             dpNamSinh.DataBindings.Clear();
             dpNamSinh.DataBindings.Add("Text", dtgvDS.DataSource, "NamSinh");
+            textBox1.DataBindings.Clear();
+            textBox1.DataBindings.Add("Text", dtgvDS.DataSource, "MatKhau");
         }
 
         private void loadCMB()
@@ -58,6 +60,7 @@ namespace QL_BanHang.View
             txtTen.Text = "";
             txtDiaChi.Text = "";
             txtSDT.Text = "";
+            textBox1.Text =  string.Empty;
             dpNamSinh.Value = DateTime.Now.Date;
             loadCMB();
         }
@@ -74,7 +77,8 @@ namespace QL_BanHang.View
             nv.DiaChi = txtDiaChi.Text.Trim();
             nv.SDT = txtSDT.Text.Trim();
             nv.TenNhanVien = txtTen.Text.Trim();
-            nv.NamSinh = dpNamSinh.Value; //k rõ text hay valuse
+            nv.NamSinh = dpNamSinh.Value;
+            nv.MatKhau = textBox1.Text;
         }
 
         private void DisEnl(bool e)
@@ -90,6 +94,7 @@ namespace QL_BanHang.View
             txtSDT.Enabled = e;
             cmbGioiTinh.Enabled = e;
             dpNamSinh.Enabled = e;
+            textBox1.Enabled = e;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

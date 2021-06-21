@@ -38,7 +38,7 @@ namespace QL_BanHang.Model
 
         public bool Login(NhanVienObj khachHangObj)
         {
-            cmd.CommandText = "Select * from tb_KhachHang where Emails = '" + khachHangObj.TenNhanVien + "' AND MatKhau = '" + khachHangObj.Pass + "' ";
+            cmd.CommandText = "Select * from tb_KhachHang where Emails = '" + khachHangObj.TenNhanVien + "' AND MatKhau = '" + khachHangObj.MatKhau + "' ";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -57,7 +57,7 @@ namespace QL_BanHang.Model
 
         public bool AddData(NhanVienObj nvObj)
         {
-            cmd.CommandText = "Insert into tb_NhanVien values ('" + nvObj.MaNhanVien + "',N'" + nvObj.TenNhanVien + "',N'" + nvObj.GioiTinh + "',CONVERT(DATE,'" + nvObj.NamSinh + "',103),N'" + nvObj.DiaChi + "','" + nvObj.SDT + "','" + nvObj.MatKhau + "')";
+            cmd.CommandText = "Insert into tb_NhanVien values ('" + nvObj.MaNhanVien + "','" + nvObj.TenNhanVien + "',N'" + nvObj.GioiTinh + "','" + nvObj.NamSinh + "', '" + nvObj.DiaChi + "','" + nvObj.SDT + "','" + nvObj.MatKhau + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
 
@@ -79,7 +79,7 @@ namespace QL_BanHang.Model
 
         public bool UpdData(NhanVienObj nvObj)
         {
-            cmd.CommandText = "Update tb_NhanVien set TenNV =  N'" + nvObj.TenNhanVien + "', GioiTinh = N'" + nvObj.GioiTinh + "', NamSinh = CONVERT(DATE,'" + nvObj.NamSinh + "',103), DiaChi = N'" + nvObj.DiaChi + "',SDT = '" + nvObj.SDT + "' Where MaNV = '" + nvObj.MaNhanVien + "'";
+            cmd.CommandText = "Update tb_NhanVien set TenNhanVien =  '" + nvObj.TenNhanVien + "', GioiTinh = '" + nvObj.GioiTinh + "', NamSinh = '" + nvObj.NamSinh + "', DiaChi = '" + nvObj.DiaChi + "',SDT = '" + nvObj.SDT + "', MatKhau = '" + nvObj.MatKhau + "' Where MaNV = '" + nvObj.MaNhanVien + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try

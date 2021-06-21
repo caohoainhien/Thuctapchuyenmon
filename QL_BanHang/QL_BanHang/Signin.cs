@@ -57,9 +57,9 @@ namespace QL_BanHang
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var mess = MessageBox.Show("Do you want to exit program ?", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (mess = DialogResult.Yes)
+            if (mess == DialogResult.Yes)
             {
-
+                Environment.Exit(1);
             }
         }
     }

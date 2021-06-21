@@ -89,6 +89,7 @@ namespace QL_BanHang.View
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Phần Mềm Quản Lý Bán Hàng - 5951071070 - Cao Hoài Nhiên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

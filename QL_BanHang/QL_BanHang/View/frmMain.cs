@@ -54,5 +54,14 @@ namespace QL_BanHang.View
             nhanVien.Show();
             this.Hide();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var mess = MessageBox.Show("Do you want to exit program", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (mess == DialogResult.Yes)
+            {
+                Environment.Exit(-1);
+            }
+        }
     }
 }
