@@ -1,8 +1,11 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Nhien\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Nhien\\.nuget\\packages"
+      "C:\\Users\\Hendrich\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Hendrich\\.nuget\\packages",
+      "D:\\ZZZ Program File\\DevExpress\\Components\\Offline Packages",
+      "D:\\ZZZ Program File\\VS SDK Tool\\NuGetPackages",
+      "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
     ]
   }
 }

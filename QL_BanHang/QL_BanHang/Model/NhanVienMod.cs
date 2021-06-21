@@ -36,6 +36,25 @@ namespace QL_BanHang.Model
             return dt;
         }
 
+        public bool Login(NhanVienObj khachHangObj)
+        {
+            cmd.CommandText = "Select * from tb_KhachHang where Emails = '" + khachHangObj.TenNhanVien + "' AND MatKhau = '" + khachHangObj.Pass + "' ";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                cmd.ExecuteNonQuery();
+                con.CloseConn();
+            }
+            catch (Exception)
+            {
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return false;
+        }
+
         public bool AddData(NhanVienObj nvObj)
         {
             cmd.CommandText = "Insert into tb_NhanVien values ('" + nvObj.MaNhanVien + "',N'" + nvObj.TenNhanVien + "',N'" + nvObj.GioiTinh + "',CONVERT(DATE,'" + nvObj.NamSinh + "',103),N'" + nvObj.DiaChi + "','" + nvObj.SDT + "','" + nvObj.MatKhau + "')";

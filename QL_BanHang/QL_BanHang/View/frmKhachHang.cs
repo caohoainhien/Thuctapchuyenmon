@@ -26,11 +26,11 @@ namespace QL_BanHang.View
             dtDS = khCtr.GetData();
             dtgvDS.DataSource = dtDS;
             binhding();
-            //DisEnl(false);
+            DisEnl(false);
         }
         private void binhding()
         {
-            /*txtMa.DataBindings.Clear();
+            txtMa.DataBindings.Clear();
             txtMa.DataBindings.Add("Text", dtgvDS.DataSource, "MaKH");
             txtTen.DataBindings.Clear();
             txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenKH");
@@ -45,9 +45,8 @@ namespace QL_BanHang.View
             txtEmail.DataBindings.Clear();
             txtEmail.DataBindings.Add("Text", dtgvDS.DataSource, "emails");
             txtDiem.DataBindings.Clear();
-            txtDiem.DataBindings.Add("Text", dtgvDS.DataSource, "Diem");*/
-            dtgvDS.Update();
-            dtgvDS.Refresh();
+            txtDiem.DataBindings.Add("Text", dtgvDS.DataSource, "SoDiem");
+
         }
         
         private void DisEnl(bool e)
@@ -100,7 +99,7 @@ namespace QL_BanHang.View
             kh.TenKhachHang = txtTen.Text.Trim();
             kh.NamSinh = dpNamSinh.Value;
             kh.Email = txtEmail.Text.Trim();
-            kh.Diem = int.Parse(txtDiem.Text.Trim());
+            kh.Diem = txtDiem.Text;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

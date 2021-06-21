@@ -5,14 +5,20 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Nhien\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Hendrich\.nuget\packages\;D:\ZZZ Program File\DevExpress\Components\Offline Packages;D:\ZZZ Program File\VS SDK Tool\NuGetPackages;C:\Program Files (x86)\Progress\ToolboxNuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.9.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.9.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\Nhien\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\Hendrich\.nuget\packages\" />
+    <SourceRoot Include="D:\ZZZ Program File\DevExpress\Components\Offline Packages\" />
+    <SourceRoot Include="D:\ZZZ Program File\VS SDK Tool\NuGetPackages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Progress\ToolboxNuGetPackages\" />
   </ItemGroup>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgUI_for_WinForms_AllControls_NetCore Condition=" '$(PkgUI_for_WinForms_AllControls_NetCore)' == '' ">C:\Program Files (x86)\Progress\ToolboxNuGetPackages\ui.for.winforms.allcontrols.netcore\2021.1.326</PkgUI_for_WinForms_AllControls_NetCore>
   </PropertyGroup>
 </Project>

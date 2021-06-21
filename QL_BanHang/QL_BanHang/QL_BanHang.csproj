@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="ui.for.winforms.allcontrols.netcore" Version="2021.1.326" />
   </ItemGroup>
 
   <ItemGroup>

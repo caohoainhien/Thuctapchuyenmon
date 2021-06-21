@@ -20,6 +20,7 @@ namespace QL_BanHang.Control
         {
             return nvMod.AddData(khObj);
         }
+
         public bool UpdData(KhachHangObj khObj)
         {
             return nvMod.UpdData(khObj);

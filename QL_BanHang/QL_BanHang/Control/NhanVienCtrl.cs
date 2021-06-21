@@ -16,6 +16,11 @@ namespace QL_BanHang.Control
             return nvMod.GetData();
         }
 
+        public bool Login (NhanVienObj nhanVienObj)
+        {
+            return nvMod.Login(nhanVienObj);
+        }
+
         public bool addData(NhanVienObj nvObj)
         {
             return nvMod.AddData(nvObj);

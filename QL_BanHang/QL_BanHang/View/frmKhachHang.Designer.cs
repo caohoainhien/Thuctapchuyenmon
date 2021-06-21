@@ -192,6 +192,7 @@
             this.dtgvDS.Location = new System.Drawing.Point(3, 22);
             this.dtgvDS.Name = "dtgvDS";
             this.dtgvDS.ReadOnly = true;
+            this.dtgvDS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvDS.Size = new System.Drawing.Size(940, 140);
             this.dtgvDS.TabIndex = 0;
             // 

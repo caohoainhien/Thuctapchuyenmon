@@ -37,7 +37,7 @@ namespace QL_BanHang.Model
         #region Contrustor
         public ConnectToSQL()
         {
-            StrCon = @"Data Source=NHIEN-PC\SQLEXPRESS;Initial Catalog=QL_BanHang;Integrated Security=True"; //doi thanh cua may
+            StrCon = @"Data Source=DESKTOP-F970216;Initial Catalog=QL_BanHang;Integrated Security=True"; //doi thanh cua may
             Conn = new SqlConnection(StrCon);
         }
         #endregion

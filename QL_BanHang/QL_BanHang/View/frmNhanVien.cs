@@ -33,7 +33,7 @@ namespace QL_BanHang.View
             txtMa.DataBindings.Clear();
             txtMa.DataBindings.Add("Text", dtgvDS.DataSource, "MaNV");
             txtTen.DataBindings.Clear();
-            txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenNV");
+            txtTen.DataBindings.Add("Text", dtgvDS.DataSource, "TenNhanVien");
             cmbGioiTinh.DataBindings.Clear();
             cmbGioiTinh.DataBindings.Add("Text", dtgvDS.DataSource, "GioiTinh");
             txtDiaChi.DataBindings.Clear();
