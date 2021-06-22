@@ -1,86 +1,190 @@
-create database QL_BanHang
-go
-use QL_BanHang
-
-
-create table tb_NhanVien(
- MaNV	varchar(10) primary key	,
- TenNhanVien	nvarchar(50)	,
- Gioitinh	nvarchar(5)	,
- NamSinh	date	,
- DiaChi	nvarchar(50)	,
- SDT	varchar(11)	,
- MatKhau	varchar(20)	
-		
- )
-
- create table tb_KhachHang(
- MaKH	varchar(10)	primary key,
- TenKH	nvarchar(50),
- SDT	varchar(10)	,
- GioiTinh	nvarchar(5)	,
- DiaChi	nvarchar(50),	
- SoDiem	varchar(10)
- )
-
-
-
- create table tb_HoaDon(
- 
- MaHoaDon	varchar(10) primary key	,
- KhachHang	nvarchar(50),	
- NhanVienLap	nvarchar(50),	
- NgayLap	date,	
- MaKH	varchar(10)	,
- MaNV	varchar(10)	,
-		
- )
-
- create table tb_CTHD(
- MaHD	varchar(10)	,
- MaHH	varchar(10)	,
- DonGia	varchar(20)	,
- SoLuong	varchar(10)	,
- primary key (MaHD,MaHH)
-		
- )
-
- create table tb_HangHoa(
- MaHang	varchar(10) primary key	,
- TenHang	nvarchar(50),
- DonGia	varchar(20)	,
- SoLuong	varchar(10)	,
-		
- )
-
- go
- alter table tb_HoaDon add foreign key (MaKH) references  tb_KhachHang(MaKH)
- alter table tb_HoaDon add foreign key (MaNV) references  tb_NhanVien(MaNV)
-
-
- alter table tb_CTHD add foreign key (MaHD) references  tb_HoaDon(MaHoaDon)
-  alter table tb_CTHD add foreign key (MaHH) references  tb_HangHoa( MaHang)
-  go
-
-  select * from tb_KhachHang
-   insert into tb_HangHoa values ('4',N'Tivi' , '150000','1500')
-
-   insert into tb_NhanVien values ('3',N'hung','nam','2/12/2000','nghe an','0866254355','567')
-
-    insert into tb_KhachHang values ('4',N'huy' , '150000','nam','binh phuoc','458')
-
-   insert into tb_HoaDon values ('2',N'huy','nam','2/10/2000','1','1')
-
-   insert into tb_CTHD values ('1','4','1256','6')
-
-
-
-    insert into tb_HangHoa values ('5',N'Tu Lanh' , '180000','2000')
-
-   insert into tb_NhanVien values ('4',N'Hien','Nu','2/12/1993','Ha Noi','0888884447','999')
-
-    insert into tb_KhachHang values ('5',N'Nhien' , '200000','nam','Binh Thuan','888')
-
-   insert into tb_HoaDon values ('3',N'Nhien','nam','2/10/2000','1','1')
-
-   insert into tb_CTHD values ('1','3','1256','6')
+USE [master]
+GO
+/****** Object:  Database [QL_BanHang]    Script Date: 6/22/2021 10:25:04 AM ******/
+CREATE DATABASE [QL_BanHang]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'QL_BanHang', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\QL_BanHang.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'QL_BanHang_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\QL_BanHang_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [QL_BanHang] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [QL_BanHang].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [QL_BanHang] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [QL_BanHang] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [QL_BanHang] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [QL_BanHang] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [QL_BanHang] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET RECOVERY FULL 
+GO
+ALTER DATABASE [QL_BanHang] SET  MULTI_USER 
+GO
+ALTER DATABASE [QL_BanHang] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [QL_BanHang] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [QL_BanHang] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [QL_BanHang] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [QL_BanHang] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [QL_BanHang] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'QL_BanHang', N'ON'
+GO
+ALTER DATABASE [QL_BanHang] SET QUERY_STORE = OFF
+GO
+USE [QL_BanHang]
+GO
+/****** Object:  Table [dbo].[tb_CTHD]    Script Date: 6/22/2021 10:25:04 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tb_CTHD](
+	[MaHD] [varchar](10) NOT NULL,
+	[MaHH] [varchar](10) NOT NULL,
+	[DonGia] [varchar](20) NULL,
+	[SoLuong] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaHD] ASC,
+	[MaHH] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tb_HangHoa]    Script Date: 6/22/2021 10:25:04 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tb_HangHoa](
+	[MaHang] [varchar](10) NOT NULL,
+	[TenHang] [nvarchar](50) NULL,
+	[DonGia] [varchar](20) NULL,
+	[SoLuong] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaHang] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tb_HoaDon]    Script Date: 6/22/2021 10:25:04 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tb_HoaDon](
+	[MaHoaDon] [varchar](10) NOT NULL,
+	[KhachHang] [nvarchar](50) NULL,
+	[NhanVienLap] [nvarchar](50) NULL,
+	[NgayLap] [date] NULL,
+	[MaKH] [varchar](10) NULL,
+	[MaNV] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaHoaDon] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tb_KhachHang]    Script Date: 6/22/2021 10:25:04 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tb_KhachHang](
+	[MaKH] [varchar](10) NOT NULL,
+	[TenKH] [nvarchar](50) NULL,
+	[SDT] [varchar](10) NULL,
+	[GioiTinh] [nvarchar](5) NULL,
+	[DiaChi] [nvarchar](50) NULL,
+	[Namsinh] [datetime] NULL,
+	[Emails] [varchar](200) NULL,
+	[SoDiem] [varchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaKH] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tb_NhanVien]    Script Date: 6/22/2021 10:25:04 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tb_NhanVien](
+	[MaNV] [varchar](10) NOT NULL,
+	[TenNhanVien] [nvarchar](50) NULL,
+	[Gioitinh] [nvarchar](5) NULL,
+	[NamSinh] [date] NULL,
+	[DiaChi] [nvarchar](50) NULL,
+	[SDT] [varchar](11) NULL,
+	[MatKhau] [varchar](20) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MaNV] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[tb_CTHD]  WITH CHECK ADD FOREIGN KEY([MaHD])
+REFERENCES [dbo].[tb_HoaDon] ([MaHoaDon])
+GO
+ALTER TABLE [dbo].[tb_CTHD]  WITH CHECK ADD FOREIGN KEY([MaHH])
+REFERENCES [dbo].[tb_HangHoa] ([MaHang])
+GO
+ALTER TABLE [dbo].[tb_HoaDon]  WITH CHECK ADD FOREIGN KEY([MaKH])
+REFERENCES [dbo].[tb_KhachHang] ([MaKH])
+GO
+ALTER TABLE [dbo].[tb_HoaDon]  WITH CHECK ADD FOREIGN KEY([MaNV])
+REFERENCES [dbo].[tb_NhanVien] ([MaNV])
+GO
+USE [master]
+GO
+ALTER DATABASE [QL_BanHang] SET  READ_WRITE 
+GO
